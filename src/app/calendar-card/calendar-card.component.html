@@ -1,6 +1,6 @@
-<div class="bg-brown w-[200px] h-[250px] rounded-lg shadow-xl shadow-black text-white">
+<div *ngFor="let day of allDays" class="bg-brown w-[280px] h-[320px] rounded-lg shadow-xl shadow-black text-white m-5">
     <ul class="list-disc ml-4">
-        <h2 class="mb-4 pt-6">Title of something</h2>
-        <li class="ml-8">Item 1</li>
+        <h1 class="mb-4 pt-6 text-xl">{{day.name}}</h1>
+        <li *ngFor="let task of day.tasks" class="ml-8">{{task}}</li>
       </ul>
 </div>
