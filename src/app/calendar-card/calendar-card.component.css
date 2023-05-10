@@ -1,3 +1,9 @@
 .bg-brown{
     background-color: rgba(100, 23, 30, 0.8);
 }
+
+.text-muted {
+    color: black;
+    opacity: 0.8;
+    text-decoration: line-through;
+  }

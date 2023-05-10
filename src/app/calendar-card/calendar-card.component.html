@@ -1,6 +1,11 @@
 <div *ngFor="let day of allDays" class="bg-brown w-[280px] h-[320px] rounded-xl shadow-xl shadow-black text-white m-5">
-    <ul class="list-disc ml-4">
-        <h1 class="mb-4 pt-6 text-xl">{{day.name}}</h1>
-        <li *ngFor="let task of day.tasks" class="ml-8">{{task}}</li>
-      </ul>
+  <ul class="list-none ml-4">
+      <h1 class="mb-4 pt-6 text-xl">{{day.name}}</h1>
+      <li *ngFor="let task of day.tasks">
+        <label class="cursor-pointer">
+          <input type="checkbox" class="accent-black cursor-pointer" (click)="toggleTaskDone(task)">
+          <span [ngClass]="{'pl-2': true, 'text-muted': task.isChecked}">{{task.name}}</span>
+        </label>
+      </li>
+  </ul>
 </div>
