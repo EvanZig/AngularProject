@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-calendar-card',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./calendar-card.component.css'],
 })
 export class CalendarCardComponent {
+  @Input() start:number = 0;
+  @Input() end:number = 7;
   allDays: Day[] = [
     new Day('Monday (01/05)', ['Go to office', 'Gym'], false),
     new Day('Tuesday (02/05)', [

@@ -1,0 +1,4 @@
+.disabled {
+    opacity: 0.5; /* or any other styling to make it appear disabled */
+    pointer-events: none; /* prevent clicks */
+  }
