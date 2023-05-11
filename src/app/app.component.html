@@ -18,11 +18,10 @@
       &gt;
     </button>
   </div>
-  <div>
+  <div class="flex m-7 flex-wrap">
     <app-calendar-card
-      [start]="start"
-      [end]="end"
-      class="flex m-7 flex-wrap"
+    *ngFor="let day of allDays.slice(start, end)"
+      [day] = "day"
     ></app-calendar-card>
   </div>
 </div>

@@ -1,4 +1,6 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { calendarTasks } from './models/card-item-mock';
+import { Day } from './models/card-item-model';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,7 @@ import { Component, Output } from '@angular/core';
 export class AppComponent {
   start:number = 0;
   end:number = 7;
+  allDays: Day[] = calendarTasks;
 
   next7(){
     this.start+=7;
