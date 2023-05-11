@@ -1,10 +1,10 @@
-<body class="bg-pink-100 min-h-screen">
+<div class="bg-pink-100 min-h-screen">
 <app-navbar></app-navbar>
 <div class="flex items-end justify-end">
-  <button (click)="prev7()" class="w-[35px] h-[30px] bg-red-800 border-pink-300 border-2 text-white flex justify-center pb-6 mr-4 mt-4 mb-4" [disabled]="start === 0" [class.disabled]="start === 0" >&lt;</button>
-  <button (click)="next7()" class="w-[35px] h-[30px] bg-red-800 border-pink-300 border-2 text-white flex justify-center pb-6 mr-4 mt-4 mb-4"[disabled]="start === 21" [class.disabled]="start === 21">&gt;</button>
+  <button (click)="prev7()" class="w-[55px] rounded-full h-[30px] bg-red-800 border-pink-300 border-2 text-white flex justify-center pb-6 mr-4 mt-4 mb-4" [disabled]="start === 0" [class.disabled]="start === 0" >&lt;</button>
+  <button (click)="next7()" class="w-[55px] rounded-full h-[30px] bg-red-800 border-pink-300 border-2 text-white flex justify-center pb-6 mr-4 mt-4 mb-4"[disabled]="start === 21" [class.disabled]="start === 21">&gt;</button>
 </div>
 <div>
 <app-calendar-card [start]="start" [end]="end" class="flex m-7 flex-wrap"></app-calendar-card>
 </div>
-</body>
+</div>
