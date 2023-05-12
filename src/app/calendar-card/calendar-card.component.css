@@ -7,3 +7,9 @@
     opacity: 0.8;
     text-decoration: line-through;
 }
+
+.calendarCard:hover .showOnHover{
+    display: block;
+    opacity: 1;
+}
+

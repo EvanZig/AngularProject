@@ -1,6 +1,9 @@
 <div
-  class="bg-brown w-[280px] h-[320px] rounded-xl shadow-xl shadow-black text-white m-5 flex flex-wrap"
+  class="bg-brown w-[280px] h-[320px] rounded-xl shadow-xl shadow-black text-white m-5 flex flex-wrap relative calendarCard"
 >
+<button class="absolute top-0 right-2 p-2 bg-white rounded-full h-[30px] w-[30px] pt-0 mt-1 opacity-75 hidden showOnHover text-xl text-black font-bold">
+  +
+</button>
   <ul class="list-none ml-4">
     <h1 class="mb-4 pt-6 text-xl">{{ day.name }}</h1>
     <li *ngFor="let task of day.tasks">
