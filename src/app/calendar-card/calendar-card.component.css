@@ -13,3 +13,28 @@
     opacity: 1;
 }
 
+.calendarCard:hover .deleteButton{
+    visibility: visible;
+}
+
+.taskName{
+    word-break: break-all;
+}
+
+
+/* scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 5px; 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #eee;
+    border-radius: 5px; 
+  }
+  
