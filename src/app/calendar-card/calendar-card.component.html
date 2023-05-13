@@ -6,7 +6,7 @@
 </button>
   <ul class="list-none ml-4">
     <h1 class="mb-4 pt-6 text-xl">{{ day.name }}</h1>
-    <li *ngFor="let task of day.tasks" class="listItem w-[240px] max-h-[200px] flex" >
+    <li *ngFor="let task of day.tasks" class="listItem w-[250px] max-h-[200px] flex" >
       <label class="cursor-pointer ">
         <input
           type="checkbox"
@@ -15,7 +15,7 @@
           (click)="toggleTaskDone(task)"
         />
         <span [ngClass]="{ 'pl-2': true, 'text-muted': task.isChecked }" class="taskName">{{ task.name }}</span>
-        <button class="bg-black rounded-full h-[25px] w-[25px] text-white text-center text-sm invisible absolute right-0 mr-1 deleteButton">x</button>
+        <button class="bg-black rounded-full h-[25px] w-[25px] text-white text-center text-sm invisible absolute right-0 mr-1 deleteButton border " (click)="deleteTask(task)">x</button>
       </label>
     </li>
     <li>

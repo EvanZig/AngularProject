@@ -24,11 +24,20 @@ export class CalendarCardComponent{
   }
 
   onEnterKeyPressed(){
-    const newTask:Task = new Task(this.newTaskInput.nativeElement.value, false)
-    this.day.tasks.push(newTask)
+    if(this.newTaskInput.nativeElement.value!== ""){
+    const newTask:Task = new Task(this.newTaskInput.nativeElement.value, false);
+    this.day.tasks.push(newTask);
+    }
     this.hiddenInput = true;
     this.newTaskInput.nativeElement.value = "";
   }
+
+  deleteTask(task: Task) {
+    this.day.tasks = this.day.tasks.filter(t => t !== task);
+  
+    localStorage.setItem(`${this.day.name}_tasks`, JSON.stringify(this.day.tasks));
+  }
+  
 
   toggleTaskDone(task: any) {
     task.isChecked = !task.isChecked;

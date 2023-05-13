@@ -22,5 +22,12 @@ export class AppComponent {
     this.end-=7;
   }
 
+  saveAllTasks(){
+    this.allDays.forEach(day => {
+      console.log(day.name);
+      day.saveTasks();
+    })
+  }
+
   title = 'AngularProject';
 }
