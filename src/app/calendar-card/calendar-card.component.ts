@@ -35,7 +35,7 @@ export class CalendarCardComponent{
   deleteTask(task: Task) {
     this.day.tasks = this.day.tasks.filter(t => t !== task);
   
-    localStorage.setItem(`${this.day.name}_tasks`, JSON.stringify(this.day.tasks));
+    // localStorage.setItem(`${this.day.name}_tasks`, JSON.stringify(this.day.tasks));
   }
   
 
