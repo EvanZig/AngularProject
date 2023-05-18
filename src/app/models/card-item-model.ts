@@ -13,7 +13,7 @@ export class Day {
     }
   }
   saveTasks() {
-    localStorage.setItem(`${this.name}_tasks`, JSON.stringify(this.tasks));
+    localStorage.setItem(`calendarTasks`, JSON.stringify(`{${this.name},${this.tasks}`));
   }
 }
 
