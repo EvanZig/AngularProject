@@ -4,16 +4,19 @@ export class Day {
 
   constructor(name: string, public defaultTasks: string[], isChecked: boolean) {
     this.name = name;
-    const storedTasks = localStorage.getItem(`${this.name}_tasks`);
-    if (storedTasks && storedTasks!=='[]') {
-      this.tasks = JSON.parse(storedTasks);
-    } else {
-      this.tasks = defaultTasks.map((t) => new Task(t, isChecked));
-      localStorage.setItem(`${this.name}_tasks`, JSON.stringify(this.tasks));
-    }
+    this.tasks = defaultTasks.map((taskName) => new Task(taskName, isChecked));
   }
+
   saveTasks() {
-    localStorage.setItem(`calendarTasks`, JSON.stringify(`{${this.name},${this.tasks}`));
+    const storedTasks = localStorage.getItem('calendar_tasks');
+    if (storedTasks) {
+      const days = JSON.parse(storedTasks) as Day[];
+      const dayIndex = days.findIndex((day) => day.name === this.name);
+      if (dayIndex !== -1) {
+        days[dayIndex].tasks = this.tasks;
+        localStorage.setItem('calendar_tasks', JSON.stringify(days));
+      }
+    }
   }
 }
 

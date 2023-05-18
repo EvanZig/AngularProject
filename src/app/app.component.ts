@@ -8,25 +8,31 @@ import { Day } from './models/card-item-model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  start:number = 0;
-  end:number = 7;
-  allDays: Day[] = calendarTasks;
+  start: number = 0;
+  end: number = 7;
+  allDays: Day[] = [];
 
-  next7(){
-    this.start+=7;
-    this.end+=7;
+  ngOnInit() {
+    const storedTasks = localStorage.getItem('calendar_tasks');
+    if (storedTasks) {
+      this.allDays = JSON.parse(storedTasks);
+    } else {
+      this.allDays = calendarTasks;
+    }
   }
 
-  prev7(){
-    this.start-=7;
-    this.end-=7;
+  next7() {
+    this.start += 7;
+    this.end += 7;
   }
 
-  saveAllTasks(){
-    this.allDays.forEach(day => {
-      console.log(day.name);
-      day.saveTasks();
-    })
+  prev7() {
+    this.start -= 7;
+    this.end -= 7;
+  }
+
+  saveAllTasks() {
+    localStorage.setItem('calendar_tasks', JSON.stringify(this.allDays));
   }
 
   title = 'AngularProject';
