@@ -24,13 +24,13 @@
             <div class="modal-backdrop" (click)="closeModal()"></div>
             <div class="modal-content bg-pink-50">
               <span class="close rounded-full" (click)="closeModal()">&times;</span>
-              <h2 class="font-bold text-center">Add Task</h2>
+              <h2 class="font-bold text-center">Add Task // {{ (modalService.selectedDay$ | async)?.name }}</h2>
               <hr class="border-solid border-2 border-black mt-4 mb-4">
-              <textarea class="text-black rounded-md addTask w-[400px] h-[150px]" #newTaskInput (keydown.enter)="addTaskToCard()"></textarea>
-              <br>
-              <div class="flex ">
-              <button class="rounded-full w-[85px] h-[35px] bg-brown text-white text-base ml-auto mt-5 modalAddButton" (click)="addTaskToCard()">ADD</button>
-            </div>
-            </div>
-          </div>
+    <textarea class="text-black rounded-md addTask w-[400px] h-[150px]" #newTaskInput (keydown.enter)="addTaskToCard()"></textarea>
+    <br>
+    <div class="flex ">
+    <button class="rounded-full w-[85px] h-[35px] bg-brown text-white text-base ml-auto mt-5 modalAddButton" (click)="addTaskToCard()">ADD</button>
+  </div>
+  </div>
+</div>
 </div>

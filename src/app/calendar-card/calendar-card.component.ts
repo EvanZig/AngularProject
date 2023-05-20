@@ -17,10 +17,11 @@ export class CalendarCardComponent {
   }
 
   openModal() {
-    this.modalService.openModal();
-    setTimeout(() => {
+    this.modalService.openModal(this.day);
+        setTimeout(() => {
       this.newTaskInput.nativeElement.focus();
     }, 0);
+    console.log(this.day)
   }
 
   closeModal() {
@@ -30,10 +31,10 @@ export class CalendarCardComponent {
   addTaskToCard() {
     if (this.newTaskInput.nativeElement.value !== '') {
       const newTask: Task = new Task(this.newTaskInput.nativeElement.value, false);
-      this.day.tasks.push(newTask);
-      this.taskAdded.emit(newTask); // Emit the task added event
+      this.modalService.addTaskToDay(newTask);
     }
     this.newTaskInput.nativeElement.value = '';
+    // this.closeModal();
   }
 
   deleteTask(task: Task) {
