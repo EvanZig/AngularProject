@@ -1,36 +1,68 @@
 <div
   class="bg-brown w-[280px] h-[320px] rounded-xl shadow-xl shadow-black text-white m-5 flex flex-wrap relative calendarCard overflow-auto"
 >
-<button class="absolute top-0 right-2 p-2 bg-white rounded-full h-[30px] w-[30px] pt-0 mt-2 opacity-75 hidden showOnHover text-xl text-black font-bold" (click)="openModal(); " #addTaskButton>
-  +
-</button>
+  <button
+    class="absolute top-0 right-2 p-2 bg-white rounded-full h-[30px] w-[30px] pt-0 mt-2 opacity-75 hidden showOnHover text-xl text-black font-bold"
+    (click)="openModal()"
+    #addTaskButton
+  >
+    +
+  </button>
   <ul class="list-none ml-4">
     <h1 class="mb-4 pt-6 text-xl">{{ day.name }}</h1>
-    <li *ngFor="let task of day.tasks" class="listItem w-[250px] max-h-[200px] flex" >
-      <label class="cursor-pointer ">
+    <li
+      *ngFor="let task of day.tasks"
+      class="listItem w-[250px] max-h-[200px] flex"
+    >
+      <label class="cursor-pointer">
         <input
           type="checkbox"
           class="accent-black cursor-pointer"
           [checked]="task.isChecked"
           (click)="toggleTaskDone(task)"
         />
-        <span [ngClass]="{ 'pl-2': true, 'text-muted': task.isChecked }" class="taskName">{{ task.name }}</span>
-        <button class="bg-black rounded-full h-[25px] w-[25px] text-white text-center text-sm invisible absolute right-0 mr-1 deleteButton border " (click)="deleteTask(task)">&times;</button>
+        <span
+          [ngClass]="{ 'pl-2': true, 'text-muted': task.isChecked }"
+          class="taskName"
+          >{{ task.name }}</span
+        >
+        <button
+          class="bg-black rounded-full h-[25px] w-[25px] text-white text-center text-sm invisible absolute right-0 mr-1 deleteButton border"
+          (click)="deleteTask(task)"
+        >
+          &times;
+        </button>
       </label>
     </li>
   </ul>
-          <!-- Modal -->
-          <div class="modal text-black" *ngIf="(modalService.showModal$ | async)">
-            <div class="modal-backdrop" (click)="closeModal()"></div>
-            <div class="modal-content bg-pink-50">
-              <span class="close rounded-full" (click)="closeModal()">&times;</span>
-              <h2 class="font-bold text-center">Add Task // {{ (modalService.selectedDay$ | async)?.name }}</h2>
-              <hr class="border-solid border-2 border-black mt-4 mb-4">
-    <textarea class="text-black rounded-md addTask w-[400px] h-[150px]" #newTaskInput (keydown.enter)="addTaskToCard()"></textarea>
-    <br>
-    <div class="flex ">
-    <button class="rounded-full w-[85px] h-[35px] bg-brown text-white text-base ml-auto mt-5 modalAddButton" (click)="addTaskToCard()">ADD</button>
+  <!-- Modal -->
+  <div class="modal text-black" *ngIf="modalService.showModal$ | async">
+    <div class="modal-backdrop" (click)="closeModal()"></div>
+    <div class="modal-content bg-pink-50">
+      <span class="close rounded-full" (click)="closeModal()">&times;</span>
+      <h2 class="font-bold text-center">
+        Add Task // {{ (modalService.selectedDay$ | async)?.name }}
+      </h2>
+      <hr class="border-solid border-2 border-black mt-4 mb-4" />
+      <form [formGroup]="taskForm" (ngSubmit)="addTaskToCard()">
+        <textarea
+          id="newTaskInput"
+          class="text-black rounded-md addTask w-[400px] h-[150px]"
+          formControlName="newTaskInput"
+          (keydown.enter)="addTaskToCard()"
+          #newTaskInput
+        ></textarea>
+        <br />
+        <div class="flex">
+          <button
+            class="rounded-full w-[85px] h-[35px] bg-brown text-white text-base ml-auto mt-5 modalAddButton"
+            type="submit"
+          >
+            ADD
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-  </div>
-</div>
+  <!--  -->
 </div>
