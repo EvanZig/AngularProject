@@ -98,3 +98,17 @@
     opacity: 0.9;
   }
   
+
+  textarea{
+    padding:10px;
+    margin: 0 auto 10px; 
+    border:none ;font-size:20px;
+    font-family:'Montserrat Alternates';
+    border-radius:10px;outline:none;
+    transition: box-shadow .3s ease;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* shadow for text area */
+  textarea:focus,
+  textarea:hover{box-shadow:0px 0px 13px 0px #000}
