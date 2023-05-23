@@ -53,9 +53,15 @@
           #newTaskInput
         ></textarea>
         <br />
-        <div class="flex">
+        <div class="flex items-end justify-end">
           <button
-            class="rounded-full w-[85px] h-[35px] bg-brown text-white text-base ml-auto mt-5 modalAddButton"
+            class="rounded-full w-[85px] h-[35px] text-white text-base mt-5 modalAddButton cancel bg-gray-500"
+            (click)="closeModal()"
+          >
+            CANCEL
+          </button>
+          <button
+            class="rounded-full w-[85px] h-[35px] bg-brown text-white text-base mt-5 ml-3 modalAddButton"
             type="submit"
           >
             ADD

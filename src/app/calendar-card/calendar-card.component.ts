@@ -39,6 +39,7 @@ export class CalendarCardComponent{
 
   closeModal() {
     this.modalService.closeModal();
+    this.taskForm.reset();
   }
 
   addTaskToCard() {
